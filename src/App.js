@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./Camponents/Layout";
+import Home from "./Camponents/Home";
+import Tv from './Camponents/Tv';
+import Movies from './Camponents/Movies';
+import Disney from './Camponents/Disney';
+import Kids from './Camponents/Kids';
+import Sports from './Camponents/Sports';
+import NoPage from "./Camponents/NoPage";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element ={<Home />} />
+          <Route path="Tv" element={<Tv/>}/>
+          <Route path="Movies" element={<Movies/>}/>
+          <Route path="Disney" element={<Disney/>}/>
+          <Route path="Kids" element={<Kids/>}/>
+          <Route path="Sports" element={<Sports/>}/>
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App;
+
+
+// function App() {
+//   return (
+    
+//   );
+// }
+
+// export default App;
